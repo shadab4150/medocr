@@ -119,7 +119,7 @@ This project is proprietary and private. All rights reserved.
 
 ## 📮 Contact
 
-- **Developer**: Shadab Shaikh
+- **Developer**: Shadab
 - **GitHub**: [@shadab4150](https://github.com/shadab4150)
 
 ---
