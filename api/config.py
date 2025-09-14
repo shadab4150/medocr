@@ -22,7 +22,7 @@ class Settings:
     
     # Processing settings - same as app-v4.py
     BATCH_SIZE = 6
-    MAX_RETRIES = 1  # Using 1 as in app-v4.py
+    MAX_RETRIES = 3  # Using 1 as in app-v4.py
     MAX_PDF_PAGES = 100
     
     # Ensure upload directory exists
