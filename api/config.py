@@ -10,8 +10,7 @@ load_dotenv()
 class Settings:
     # Database
     DATABASE_URL = os.getenv(
-        "DATABASE_URL",
-        "postgresql://postgres:VawcGoIcrhqd6l6OSfaK@my-medical-db.cvasumkaopp0.ap-south-1.rds.amazonaws.com:5432/patientdocs"
+        "DATABASE_URL"
     )
     
     # Google APIs - using same as app-v4.py
