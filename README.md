@@ -1,162 +1,127 @@
 # 🏥 Medical Data Extraction Tool
 
-A Streamlit-based application for extracting structured medical data from images and PDF documents using Google Vision OCR and Gemini AI.
+# MEDOCR - Medical Document OCR System
 
----
+A Python-based OCR (Optical Character Recognition) system specifically designed for processing medical documents.
 
-## Features
+## 🌟 Overview
 
-- **Upload & Process Medical Records:**  
-  Upload PDF, JPG, PNG, or TIFF files containing medical records, including multi-page PDFs and scanned images.
+MEDOCR is a specialized OCR system built to extract and process text from medical documents, prescriptions, and healthcare-related materials. The project is implemented in Python and follows a modular architecture with separate API and application components.
 
-- **OCR & AI-Powered Extraction:**  
-  Uses Google Vision API for OCR and Gemini AI for comprehensive, structured extraction of medical information.
+## 🔧 Project Structure
 
-- **Interactive Page Selection:**  
-  Preview and select specific pages from uploaded documents for processing.
+```
+medocr/
+├── api/                  # API related files and endpoints
+├── app/                  # Main application code
+├── .gitignore           # Git ignore file
+└── README.md            # Project documentation
+```
 
-- **Editable Results:**  
-  Review and edit extracted data in markdown format before saving or exporting.
-
-- **Export as Markdown or PDF:**  
-  Download the extracted data as a markdown file or a professionally formatted A3 landscape PDF report (with original document image and extracted text side-by-side).
-
-- **Secure Access:**  
-  Password-protected login for authorized use.
-
----
-
-## Quick Start
+## 🚀 Setup Guide
 
 ### Prerequisites
 
-- Python 3.8+
-- Google Cloud Vision API credentials
-- Gemini AI API key
-- [Streamlit](https://streamlit.io/)
-- Required Python packages (see below)
+- Python 3.8 or higher
+- pip (Python package manager)
 
-### Installation
+### Installation Steps
 
-1. **Clone the Repository**
-
-    ```bash
-    git clone https://github.com/yourusername/medical-data-extraction-tool.git
-    cd medical-data-extraction-tool
-    ```
-
-2. **Install Dependencies**
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. **Environment Setup**
-
-    - Copy `.env.example` to `.env` and add your API keys:
-
-      ```
-      GEMINI_API_KEY=your-gemini-api-key
-      GOOGLE_APPLICATION_CREDENTIALS=path/to/your/google/vision/credentials.json
-      ```
-
-    - Add your user credentials to `.streamlit/secrets.toml`:
-
-      ```toml
-      [passwords]
-      your_username = "your_password"
-      ```
-
-4. **Run the App**
-
-    ```bash
-    streamlit run app-v2.py
-    ```
-
-    The app will launch in your default browser.
-
----
-
-## File Structure
-
-```
-.
-├── app-v2.py            # Streamlit main application
-├── utils/
-│   └── pdf_utils.py     # PDF creation and formatting utilities
-├── requirements.txt     # Python dependencies
-├── .env                 # API keys and environment variables
-├── .streamlit/
-│   └── secrets.toml     # User credentials for authentication
-└── README.md
+1. Clone the repository:
+```bash
+git clone https://github.com/shadab4150/medocr.git
+cd medocr
 ```
 
+2. Create a virtual environment:
+```bash
+python -m venv venv
+```
+
+3. Activate the virtual environment:
+- On Windows:
+  ```bash
+  .\venv\Scripts\activate
+  ```
+- On Unix or MacOS:
+  ```bash
+  source venv/bin/activate
+  ```
+
+4. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+## 🛠️ Technical Details
+
+### Core Components
+
+1. **API Layer** (`/api`)
+   - RESTful endpoints for OCR operations
+   - Request/Response handling
+   - API documentation and versioning
+
+2. **Application Layer** (`/app`)
+   - Core OCR processing logic
+   - Image preprocessing modules
+   - Text extraction and analysis
+   - Medical terminology processing
+
+### Key Features
+
+- Medical document OCR processing
+- Text extraction and analysis
+- Support for various medical document formats
+- Python-based implementation
+- Modular architecture for easy extensions
+
+## 🔍 Usage
+
+1. Start the application:
+```bash
+python -m app.main
+```
+
+2. Access the API documentation:
+```
+http://localhost:8000/docs
+```
+
+## 📝 Development Guidelines
+
+1. **Code Style**
+   - Follow PEP 8 guidelines
+   - Use meaningful variable and function names
+   - Add docstrings for functions and classes
+
+2. **Testing**
+   - Write unit tests for new features
+   - Ensure all tests pass before committing
+   - Run tests using: `python -m pytest`
+
+3. **Version Control**
+   - Create feature branches from `main`
+   - Follow conventional commit messages
+   - Submit pull requests for review
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is proprietary and private. All rights reserved.
+
+## 📮 Contact
+
+- **Developer**: Shadab Shaikh
+- **GitHub**: [@shadab4150](https://github.com/shadab4150)
+
 ---
 
-## Usage
-
-1. **Login:**  
-   Enter your username and password.
-
-2. **Upload Document:**  
-   Select a PDF or image file. Multi-page PDFs and TIFFs are supported.
-
-3. **Select Pages:**  
-   Preview and choose which pages to process.
-
-4. **Extract Data:**  
-   Click "Extract Medical Data" to run OCR and AI extraction.
-
-5. **Review & Edit:**  
-   Edit the markdown result as needed.
-
-6. **Download:**  
-   Save the extracted data as either a markdown file or a formatted PDF report.
-
----
-
-## Customization
-
-- **System Prompt:**  
-  Customize the extraction instructions for Gemini AI via the sidebar to target specific medical domains or report styles.
-
-- **PDF Layout:**  
-  Modify `utils/pdf_utils.py` to adjust PDF formatting, fonts, or page size.
-
----
-
-## Dependencies
-
-- [Streamlit](https://streamlit.io/)
-- [Google Cloud Vision](https://cloud.google.com/vision)
-- [Google Gemini AI](https://ai.google.dev/)
-- [pdf2image](https://github.com/Belval/pdf2image)
-- [Pillow](https://python-pillow.org/)
-- [ReportLab](https://www.reportlab.com/)
-- [python-dotenv](https://github.com/theskumar/python-dotenv)
-
-See `requirements.txt` for the full list.
-
----
-
-## Security
-
-- User authentication via credentials in `.streamlit/secrets.toml`.
-- **Do not share your API keys or credentials publicly.**
-
----
-
-## License
-
-This project is for internal.
----
-
-## Acknowledgments
-
-- Built for oncology department history notes and general medical records extraction.
-
----
-
-## Contact
-
-For questions or support, please open an issue or contact [your email/contact here].
+**Note**: This is a private repository. Please ensure you have the necessary permissions before accessing or using this code.
